@@ -36,3 +36,22 @@ console.log("course.js");
 //     console.log( tds[i] );
 // }
 
+// création d'une fonction "checkAge" pour vérifier si une personne est majeur ou non.
+function checkAge(param1) {
+    // contenu de la fonction
+    if(param1 >= 18) {
+        // le return arrête l'exécution de la fonction
+        return true
+    }
+    return false
+}
+
+// j'appelle ma fonction pour la tester : 
+
+console.log("12 ans : ", checkAge(12) )
+console.log("19 ans : ", checkAge(19) )
+console.log("18 ans : ", checkAge(18) )
+
+let check_age_90 = checkAge(90);
+console.log("90 ans : ", check_age_90 )
+console.log("test : ", checkAge("toto") )

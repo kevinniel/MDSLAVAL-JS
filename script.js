@@ -14,3 +14,4 @@ for (let i = 0; i < numbers.length; i++) {
 console.log("somme : ", sum);
 
 
+// transformer les 2 codes ci-dessus en 2 fonctions distinctes.

@@ -21,13 +21,18 @@ function count_sum() {
         sum += parseInt(numbers[i].innerHTML);
     }
     console.log("somme : ", sum);
+    return sum;
 }
 
 // intégrer les résultats des fonctions précédentes dans le footer du tableau
 // marque
 let nombre_marque = count_brands()
 const total_marque = document.querySelector(".total_marque")
-console.log(total_marque);
 total_marque.innerHTML = nombre_marque
 
 // nombre
+let somme_nombre = count_sum()
+const total_nombre = document.querySelector(".total_nombre");
+total_nombre.innerHTML = somme_nombre;
+
+// créer 2 fonctions pour MAJ le total Marque et le total Nombre

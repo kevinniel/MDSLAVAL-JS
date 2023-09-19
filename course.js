@@ -1,9 +1,11 @@
 console.log("course.js");
 
-// sélection d'un élément
+// sélection d'un élément => utilisant le sélecteur CSS
 const table = document.querySelector("table");
 // sélection de plusieurs éléments
 const tds = document.querySelectorAll("td");
+// sélection des marques : 
+const brands = document.querySelectorAll(".marque");
 
 // affichage des sélections
 // console.log(table);

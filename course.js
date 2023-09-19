@@ -65,6 +65,9 @@ td1.innerHTML = "toto";
 td2.innerHTML = "tata";
 td3.innerHTML = 12;
 
+// ajout d'une classe à td1 : 
+td1.classList.add("identifiant");
+
 const tr = document.createElement("tr");
 
 tr.append(td1);
@@ -76,7 +79,6 @@ tbody.append(tr);
 
 // récupérer la soumission du formulaire
 const form = document.querySelector("form");
-
 form.addEventListener("submit", function(event){
     // ICI
     event.preventDefault();

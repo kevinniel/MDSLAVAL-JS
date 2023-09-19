@@ -10,7 +10,6 @@ count_sum();
 
 function count_brands() {
     const brands = document.querySelectorAll(".marque");
-    console.log("nombre de marques : ", brands.length)
     return brands.length
 }
 
@@ -20,19 +19,23 @@ function count_sum() {
     for (let i = 0; i < numbers.length; i++) {
         sum += parseInt(numbers[i].innerHTML);
     }
-    console.log("somme : ", sum);
     return sum;
 }
 
 // intégrer les résultats des fonctions précédentes dans le footer du tableau
 // marque
-let nombre_marque = count_brands()
-const total_marque = document.querySelector(".total_marque")
-total_marque.innerHTML = nombre_marque
+function integrate_results_count_brands() {
+    let nombre_marque = count_brands()
+    const total_marque = document.querySelector(".total_marque")
+    total_marque.innerHTML = nombre_marque
+}
+integrate_results_count_brands()
 
 // nombre
-let somme_nombre = count_sum()
-const total_nombre = document.querySelector(".total_nombre");
-total_nombre.innerHTML = somme_nombre;
-
+function integrate_numbers_sum_nombre() {
+    let somme_nombre = count_sum()
+    const total_nombre = document.querySelector(".total_nombre");
+    total_nombre.innerHTML = somme_nombre;
+}
+integrate_numbers_sum_nombre()
 // créer 2 fonctions pour MAJ le total Marque et le total Nombre

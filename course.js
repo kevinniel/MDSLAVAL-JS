@@ -1,11 +1,17 @@
 console.log("course.js");
 
 // sélection d'un élément => utilisant le sélecteur CSS
-const table = document.querySelector("table");
+// const table = document.querySelector("table");
 // sélection de plusieurs éléments
-const tds = document.querySelectorAll("td");
+// const tds = document.querySelectorAll("td");
 // sélection des marques : 
-const brands = document.querySelectorAll(".marque");
+// const brands = document.querySelectorAll(".marque");
+
+// plusieurs sélections d'affilé :
+// 1 - sélectionner le tableau entier
+const table = document.querySelector("table");
+// 2 - sélectionner le footer du tableau à partir du 1
+const table_footter = table.querySelector("tfoot");
 
 // affichage des sélections
 // console.log(table);

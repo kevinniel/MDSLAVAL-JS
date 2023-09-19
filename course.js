@@ -48,10 +48,40 @@ function checkAge(param1) {
 
 // j'appelle ma fonction pour la tester : 
 
-console.log("12 ans : ", checkAge(12) )
-console.log("19 ans : ", checkAge(19) )
-console.log("18 ans : ", checkAge(18) )
+// console.log("12 ans : ", checkAge(12) )
+// console.log("19 ans : ", checkAge(19) )
+// console.log("18 ans : ", checkAge(18) )
 
-let check_age_90 = checkAge(90);
-console.log("90 ans : ", check_age_90 )
-console.log("test : ", checkAge("toto") )
+// let check_age_90 = checkAge(90);
+// console.log("90 ans : ", check_age_90 )
+// console.log("test : ", checkAge("toto") )
+
+// Créer un élément HTML (exemple : un TD)
+const td1 = document.createElement("td");
+const td2 = document.createElement("td");
+const td3 = document.createElement("td");
+
+td1.innerHTML = "toto";
+td2.innerHTML = "tata";
+td3.innerHTML = 12;
+
+const tr = document.createElement("tr");
+
+tr.append(td1);
+tr.append(td2);
+tr.append(td3);
+
+const tbody = document.querySelector("tbody");
+tbody.append(tr);
+
+// récupérer la soumission du formulaire
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(event){
+    // ICI
+    event.preventDefault();
+    console.log("submit form")
+
+    const input_marque = document.querySelector("#marque")
+    console.log(input_marque.value)
+});

@@ -9,9 +9,9 @@ console.log("course.js");
 
 // plusieurs sélections d'affilé :
 // 1 - sélectionner le tableau entier
-const table = document.querySelector("table");
+// const table = document.querySelector("table");
 // 2 - sélectionner le footer du tableau à partir du 1
-const table_footter = table.querySelector("tfoot");
+// const table_footer = table.querySelector("tfoot");
 
 // affichage des sélections
 // console.log(table);

@@ -57,33 +57,56 @@ function checkAge(param1) {
 // console.log("test : ", checkAge("toto") )
 
 // Créer un élément HTML (exemple : un TD)
-const td1 = document.createElement("td");
-const td2 = document.createElement("td");
-const td3 = document.createElement("td");
+// const td1 = document.createElement("td");
+// const td2 = document.createElement("td");
+// const td3 = document.createElement("td");
 
-td1.innerHTML = "toto";
-td2.innerHTML = "tata";
-td3.innerHTML = 12;
+// td1.innerHTML = "toto";
+// td2.innerHTML = "tata";
+// td3.innerHTML = 12;
 
-// ajout d'une classe à td1 : 
-td1.classList.add("identifiant");
+// // ajout d'une classe à td1 : 
+// td1.classList.add("identifiant");
+// td1.classList.add("trou");
 
-const tr = document.createElement("tr");
+// const tr = document.createElement("tr");
 
-tr.append(td1);
-tr.append(td2);
-tr.append(td3);
+// tr.append(td1);
+// tr.append(td2);
+// tr.append(td3);
 
-const tbody = document.querySelector("tbody");
-tbody.append(tr);
+// const tbody = document.querySelector("tbody");
+// tbody.append(tr);
 
-// récupérer la soumission du formulaire
-const form = document.querySelector("form");
-form.addEventListener("submit", function(event){
+// // récupérer la soumission du formulaire
+// const form = document.querySelector("form");
+// form.addEventListener("submit", function(event){
+//     // ICI
+//     event.preventDefault();
+//     console.log("submit form")
+
+//     const input_marque = document.querySelector("#marque")
+//     console.log(input_marque.value)
+// });
+
+
+
+// let tata = "tata"
+let tata = 3
+
+
+if ( isNaN(tata) ) {
     // ICI
-    event.preventDefault();
-    console.log("submit form")
+    console.log("N'est pas un nombre");
+    // on ajoute un message d'erreur - s'il n'existe pas déjà
+} else {
+    // ICI
+    console.log("est un nombre");
+    // ==> on vire les messages d'erreurs s'il y en a
+}
 
-    const input_marque = document.querySelector("#marque")
-    console.log(input_marque.value)
-});
+
+
+
+
+

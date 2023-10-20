@@ -38,4 +38,39 @@ function integrate_numbers_sum_nombre() {
     total_nombre.innerHTML = somme_nombre;
 }
 integrate_numbers_sum_nombre()
-// créer 2 fonctions pour MAJ le total Marque et le total Nombre
+
+
+// On gère l'ajout des lignes dans le tableau
+const form = document.querySelector("form");
+form.addEventListener("submit", function(event){
+    event.preventDefault();
+
+    const td1 = document.createElement("td")
+    const td2 = document.createElement("td")
+    const td3 = document.createElement("td")
+
+    td1.classList.add("identifiant");
+    td2.classList.add("marque");
+    td3.classList.add("nombre");
+
+    const input1 = document.querySelector("#identifiant")
+    const input2 = document.querySelector("#marque")
+    const input3 = document.querySelector("#nombre")
+
+    td1.innerHTML = input1.value
+    td2.innerHTML = input2.value
+    td3.innerHTML = input3.value
+
+    const tr = document.createElement("tr")
+
+    tr.append(td1)
+    tr.append(td2)
+    tr.append(td3)
+
+    const tbody = document.querySelector("tbody");
+    tbody.append(tr)
+
+    // on relance les calculs des totaux
+    integrate_results_count_brands()
+    integrate_numbers_sum_nombre()
+})

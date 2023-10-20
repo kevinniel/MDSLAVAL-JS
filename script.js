@@ -44,6 +44,7 @@ integrate_numbers_sum_nombre()
 const form = document.querySelector("form");
 form.addEventListener("submit", function(event){
     event.preventDefault();
+    let count = 0;
 
     const td1 = document.createElement("td")
     const td2 = document.createElement("td")
@@ -62,31 +63,46 @@ form.addEventListener("submit", function(event){
     td3.innerHTML = input3.value
 
     // vérifications
-    console.log("identifiant renseigné dans le form : ", input1.value)
+    // vérification de l'IDENTIFIANT
     const tbody = document.querySelector("tbody");
     const trs = tbody.querySelectorAll("tr")
     const last_tr = trs[trs.length - 1]
     const last_tr_id = last_tr.querySelector(".identifiant").innerHTML
-    console.log(last_tr_id);
     if(parseInt(input1.value) == parseInt(last_tr_id) + 1) {
-        console.log("OK")
         document.querySelector(".error_identifiant").innerHTML = ""
     } else {
-        console.log("KO")
         document.querySelector(".error_identifiant").innerHTML = "Attention, l'id doit suivre le dernier du tableau !"
+        count++
+    }
+    // VERIFICATION DE LA MARQUE (doit obligatoirement commencer par une majuscule)
+    if( input2.value[0] === input2.value[0].toUpperCase() ) {
+        document.querySelector(".error_marque").innerHTML = ""
+    } else {
+        document.querySelector(".error_marque").innerHTML = "Attention, la première lettre doit être en majuscule"
+        count++
+    }
+    // VERIFICATION DU NOMBRE (<0)
+    if( typeof(parseInt(input3.value)) === 'number' && parseInt(input3.value) > 0) {
+        document.querySelector(".error_nombre").innerHTML = ""
+    } else {
+        document.querySelector(".error_nombre").innerHTML = "Attention à bien mettre un nombre positif supérieur à 0"
+        count++
     }
 
-    // ajout de ligne
-    // const tr = document.createElement("tr")
 
-    // tr.append(td1)
-    // tr.append(td2)
-    // tr.append(td3)
+    if(count == 0) {
+        // ajout de ligne
+        const tr = document.createElement("tr")
 
-    // const tbody = document.querySelector("tbody");
-    // tbody.append(tr)
+        tr.append(td1)
+        tr.append(td2)
+        tr.append(td3)
 
-    // // on relance les calculs des totaux
-    // integrate_results_count_brands()
-    // integrate_numbers_sum_nombre()
+        const tbody = document.querySelector("tbody");
+        tbody.append(tr)
+
+        // on relance les calculs des totaux
+        integrate_results_count_brands()
+        integrate_numbers_sum_nombre()
+    }
 })

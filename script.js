@@ -104,8 +104,30 @@ function checkup(input1, input2, input3) {
     return count;
 }
 
-count_brands();
-count_sum();
+function exists_marque(marque) {
+    const brands = document.querySelectorAll(".marque");
+    for ( let i = 0; i < brands.length; i++ ) {
+        if( brands[i].innerHTML == marque ) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function updateLine(marque, nombre) {
+    const brands = document.querySelectorAll(".marque");
+    const nombres = document.querySelectorAll(".nombre");
+    for ( let i = 0; i < brands.length; i++ ) {
+        if( brands[i].innerHTML == marque) {
+            // ici, je suis sur la ligne de la marque
+            // brands[i] ==> case marque concernée
+            // i ==> numéro de ligne
+            nombres[i].innerHTML = parseInt(nombres[i].innerHTML) + parseInt(nombre)
+        }
+    }
+}
+
+
 integrate_results_count_brands()
 integrate_numbers_sum_nombre()
 
@@ -121,7 +143,11 @@ form.addEventListener("submit", function(event){
     let errors_count = checkup(input1, input2, input3)
 
     if(errors_count == 0) {
-        add_line(input1.value, input2.value, input3.value)
+        if(exists_marque(input2.value)) {
+            updateLine(input2.value, input3.value)
+        } else {
+            add_line(input1.value, input2.value, input3.value)
+        }
 
         // on relance les calculs des totaux
         integrate_results_count_brands()

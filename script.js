@@ -61,16 +61,32 @@ form.addEventListener("submit", function(event){
     td2.innerHTML = input2.value
     td3.innerHTML = input3.value
 
-    const tr = document.createElement("tr")
-
-    tr.append(td1)
-    tr.append(td2)
-    tr.append(td3)
-
+    // vérifications
+    console.log("identifiant renseigné dans le form : ", input1.value)
     const tbody = document.querySelector("tbody");
-    tbody.append(tr)
+    const trs = tbody.querySelectorAll("tr")
+    const last_tr = trs[trs.length - 1]
+    const last_tr_id = last_tr.querySelector(".identifiant").innerHTML
+    console.log(last_tr_id);
+    if(parseInt(input1.value) == parseInt(last_tr_id) + 1) {
+        console.log("OK")
+        document.querySelector(".error_identifiant").innerHTML = ""
+    } else {
+        console.log("KO")
+        document.querySelector(".error_identifiant").innerHTML = "Attention, l'id doit suivre le dernier du tableau !"
+    }
 
-    // on relance les calculs des totaux
-    integrate_results_count_brands()
-    integrate_numbers_sum_nombre()
+    // ajout de ligne
+    // const tr = document.createElement("tr")
+
+    // tr.append(td1)
+    // tr.append(td2)
+    // tr.append(td3)
+
+    // const tbody = document.querySelector("tbody");
+    // tbody.append(tr)
+
+    // // on relance les calculs des totaux
+    // integrate_results_count_brands()
+    // integrate_numbers_sum_nombre()
 })

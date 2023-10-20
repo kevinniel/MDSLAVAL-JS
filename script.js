@@ -34,6 +34,7 @@ function add_line(val1, val2, val3) {
     const td1 = document.createElement("td")
     const td2 = document.createElement("td")
     const td3 = document.createElement("td")
+    const td4 = document.createElement("td")
 
     td1.classList.add("identifiant");
     td2.classList.add("marque");
@@ -48,9 +49,12 @@ function add_line(val1, val2, val3) {
     tr.append(td1)
     tr.append(td2)
     tr.append(td3)
+    tr.append(td4)
 
     const tbody = document.querySelector("tbody");
     tbody.append(tr)
+
+    add_delete_buttons()
 }
 
 function check_identifiant(valeur) {
@@ -127,6 +131,36 @@ function updateLine(marque, nombre) {
     }
 }
 
+function create_delete_button(){
+    let delete_button = document.createElement("button");
+    delete_button.innerHTML = "Supprimer"
+
+    delete_button.addEventListener("click", function(event){
+        event.preventDefault();
+        console.log("delete");
+        console.log(delete_button);
+        let tr = delete_button.parentNode.parentNode;
+        tr.remove()
+
+        integrate_results_count_brands()
+        integrate_numbers_sum_nombre()
+    })
+
+    return delete_button
+}
+
+function add_delete_buttons() {
+    let trs = document.querySelectorAll("tbody tr");
+    for(let i = 0; i < trs.length; i++) {
+        let tds = trs[i].querySelectorAll("td");
+        let last_td = tds[3]
+        last_td.innerHTML = ""
+        last_td.append( create_delete_button() )
+    }
+}
+
+
+add_delete_buttons()
 
 integrate_results_count_brands()
 integrate_numbers_sum_nombre()

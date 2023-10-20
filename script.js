@@ -2,7 +2,7 @@ console.log("-----------------------------------");
 console.log("script.js");
 
 // Sélectionner toutes les marques et les compter
-count_brands();
+// count_brands();
 // Sélectioner toutes les cases de nombre, et faire le total
 count_sum();
 
@@ -10,7 +10,13 @@ count_sum();
 
 function count_brands() {
     const brands = document.querySelectorAll(".marque");
-    return brands.length
+    const b = []
+    for ( let i = 0; i < brands.length; i++ ) {
+        if( b.includes(brands[i].innerHTML) == false) {
+            b.push(brands[i].innerHTML);
+        }
+    }
+    return b.length
 }
 
 function count_sum() {
